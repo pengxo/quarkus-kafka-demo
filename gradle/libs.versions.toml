@@ -1,0 +1,41 @@
+[versions]
+quarkus-platform-version = "3.9.4"
+
+kotlin-jvm = "1.9.22"
+kotlin-plugin-allopen = "1.9.22"
+
+smallrye-config-jasypt = "3.7.1"
+quarkus-config-jasypt = "2.3.1"
+
+jackson-module-kotlin = "2.17.0"
+kotlinx-coroutines-reactor = "1.8.0"
+
+apache-avro = "1.11.3"
+
+[libraries]
+quarkus-platform = { module = "io.quarkus.platform:quarkus-bom", version.ref = "quarkus-platform-version" }
+quarkus-resteasy-reactive = { module = "io.quarkus:quarkus-resteasy-reactive"}
+quarkus-resteasy-reactive-jackson = { module = "io.quarkus:quarkus-resteasy-reactive-jackson"}
+quarkus-rest-client-reactive-jackson = {module = "io.quarkus:quarkus-rest-client-reactive-jackson" }
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson-module-kotlin" }
+quarkus-kotlin = { module = "io.quarkus:quarkus-kotlin"}
+kotlinx-coroutines-reactor = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor", version.ref = "kotlinx-coroutines-reactor" }
+quarkus-arc = { module = "io.quarkus:quarkus-arc"}
+quarkus-config-yaml = { module = "io.quarkus:quarkus-config-yaml"}
+
+smallrye-config-jasypt = { module = "io.smallrye.config:smallrye-config-jasypt", version.ref = "smallrye-config-jasypt" }
+smallrye-health = { module = "io.quarkus:quarkus-smallrye-health"}
+smallrye-kafka = { module = "io.quarkus:quarkus-smallrye-reactive-messaging-kafka"}
+quarkus-config-jasypt = { module = "io.quarkiverse.config:quarkus-config-jasypt", version.ref = "quarkus-config-jasypt" }
+
+apache-avro = { module = "org.apache.avro:avro", version.ref = "apache-avro" }
+
+[plugins]
+quarkus = { id = "io.quarkus", version.ref = "quarkus-platform-version" }
+
+[bundles]
+quarkus = ["quarkus-arc", "quarkus-config-yaml", "quarkus-config-jasypt"]
+resteasy = ["quarkus-resteasy-reactive", "quarkus-resteasy-reactive-jackson", "quarkus-rest-client-reactive-jackson"]
+kotlin = ["kotlinx-coroutines-reactor", "jackson-module-kotlin", "quarkus-kotlin"]
+smallrye = [ "smallrye-config-jasypt", "smallrye-health", "smallrye-kafka", "apache-avro"]
+
